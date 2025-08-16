@@ -1,0 +1,22 @@
+"vegetable oil":
+  per_100g:
+    calories: 884
+    fat_g: 100
+    carbs_g: 0
+    fiber_g: 0
+    protein_g: 0
+  density:
+    tbsp_g: 13.6
+    tsp_g: 4.5
+    cup_g: 218
+"olive oil":
+  per_100g:
+    calories: 884
+    fat_g: 100
+    carbs_g: 0
+    fiber_g: 0
+    protein_g: 0
+  density:
+    tbsp_g: 13.5
+    tsp_g: 4.5
+    cup_g: 216

@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><title>{{ title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+{% if emit_jsonld %}<script type="application/ld+json">
+{{ json_ld | safe }}
+</script>{% endif %}
+</head><body>
+<article>
+  <h1>{{ title }}</h1>
+  <img src="{{ image }}" alt="{{ title }}" width="100%">
+  <p><strong>Servings:</strong> {{ servings }}</p>
+  <h2>Ingredients</h2>
+  <ul>{% for ing in ingredients %}<li>{{ ing.display }}</li>{% endfor %}</ul>
+  <h2>Instructions</h2>
+  <ol>{% for step in instructions %}<li>{{ step }}</li>{% endfor %}</ol>
+  <h2>Nutrition (per serving)</h2>
+  <ul>
+    <li>Calories: {{ nutrition_per_serving.calories }} kcal</li>
+    <li>Fat: {{ nutrition_per_serving.fat_g }} g</li>
+    <li>Protein: {{ nutrition_per_serving.protein_g }} g</li>
+    <li>Total Carbs: {{ nutrition_per_serving.carbs_g }} g</li>
+    <li>Fiber: {{ nutrition_per_serving.fiber_g }} g</li>
+    <li>Net Carbs: {{ nutrition_per_serving.net_carbs_g }} g</li>
+  </ul>
+</article>
+</body></html>

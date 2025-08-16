@@ -1,0 +1,12 @@
+Flask
+jinja2
+PyYAML
+pdfplumber
+pillow
+pytesseract
+rapidfuzz
+pint
+jsonschema
+requests
+werkzeug
+gunicorn

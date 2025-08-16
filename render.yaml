@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: keto-recipe-generator
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: USDA_API_KEY
+        sync: false

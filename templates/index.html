@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Keto Recipe Page Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head><body>
+<h1>Keto Recipe Page Generator</h1>
+{% if message %}
+  <div style="padding:10px; margin:12px 0; border-radius:6px; {% if success %}background:#e6ffed; color:#03543f; border:1px solid #84e1bc;{% else %}background:#ffefef; color:#7a0b0b; border:1px solid #f8b4b4;{% endif %}">
+    {{ message }}
+  </div>
+{% endif %}
+<form action="/generate" method="post" enctype="multipart/form-data">
+  <label>Master template: <input type="file" name="template" accept=".html,.htm" required></label><br>
+  <label>Recipe PDFs: <input type="file" name="recipes" accept=".pdf" multiple required></label><br>
+  <label>Recipe images (match the PDF name; .jpg/.jpeg/.png/.webp; case-insensitive): <input type="file" name="images" accept=".jpg,.jpeg,.png,.webp" multiple required></label><br>
+  <label>Mix panels: <input type="file" name="mix_panels" accept=".pdf,.png,.jpg,.jpeg,.webp" multiple></label><br>
+  <label>Units:
+    <select name="units"><option value="us" selected>US</option><option value="metric">Metric</option></select>
+  </label><br>
+  <label><input type="checkbox" name="emit_jsonld" checked> Emit JSON-LD</label><br>
+  <label>Site base URL: <input type="url" name="site_base_url" placeholder="https://your-site.netlify.app"></label><br>
+  <label>USDA API key: <input type="text" name="usda_key" placeholder="(optional)"></label><br><br>
+  <label>ingredient_overrides.yml <input type="file" name="ingredient_overrides" accept=".yml,.yaml"></label><br>
+  <label>density_overrides.yml <input type="file" name="density_overrides" accept=".yml,.yaml"></label><br>
+  <label>mix_map.yml <input type="file" name="mix_map" accept=".yml,.yaml"></label><br><br>
+  <button type="submit">Generate</button>
+</form>
+</body></html>
